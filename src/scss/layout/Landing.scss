@@ -1,0 +1,44 @@
+.container-landing {
+    background-image: url("../../images/Paquita\ y\ su\ proyecto\ cropped.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.header-landing {
+    margin: 5%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.message-landing {
+    text-align: center;
+    margin: 8%;
+    font-size: 30px;
+    color: #000000;
+}
+
+.button-landing {
+    margin-top: 5% !important;
+    margin-left: 30%;
+    font-size:  20px;
+    text-decoration: none;
+    color: #000000;
+    padding: 20px 30px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    background-color: #88a82e;
+    transition: background-color 0.3s ease;
+
+}
+
+.button-landing:hover {
+    background-color: #000000;
+    color: #fff;
+}

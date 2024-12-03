@@ -1,8 +1,8 @@
-function Preview({ personalInfo, changeAuthorPhoto, changeProjectPhoto }) {
+function Preview({ personalInfo }) {
   return (
     <section className="preview">
       <div
-        style={{ backgroundImage: `url(${changeProjectPhoto})` }}
+        style={{ backgroundImage: `url(${personalInfo.image})` }}
         className="projectImage"
       ></div>
       <article className="card">
@@ -13,7 +13,7 @@ function Preview({ personalInfo, changeAuthorPhoto, changeProjectPhoto }) {
         <div className="card__author">
           <div
             className="card__authorPhoto"
-            style={{ backgroundImage: `url(${changeAuthorPhoto})` }}
+            style={{ backgroundImage: `url(${personalInfo.photo})` }}
           ></div>
           <h3 className="card__name">{personalInfo.autor}</h3>
           <p className="card__job">{personalInfo.job}</p>

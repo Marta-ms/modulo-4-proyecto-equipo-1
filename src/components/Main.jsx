@@ -8,6 +8,8 @@ function Main({
   changeAuthorPhoto,
   formImageProyect,
   changeProjectPhoto,
+  postCardToApi,
+  dataApi,
 }) {
   return (
     <main className="main">
@@ -22,13 +24,16 @@ function Main({
       </section>
       <Preview
         personalInfo={formInfo}
-        changeAuthorPhoto={changeAuthorPhoto}
-        changeProjectPhoto={changeProjectPhoto}
+        // changeAuthorPhoto={changeAuthorPhoto}
+        // changeProjectPhoto={changeProjectPhoto}
       />
       <Form
         onChangeInput={onChangeInput}
         formImages={formImages}
         formImageProyect={formImageProyect}
+        postCardToApi={postCardToApi}
+        formInfo={formInfo}
+        dataApi={dataApi}
       />
     </main>
   );
