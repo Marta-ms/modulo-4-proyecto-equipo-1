@@ -13,13 +13,21 @@ function ProyectList() {
         />
         <img className="logoSponsor" src={Logo} alt="Logo Adalab" />
       </header>
-      <h1>Proyectos Molones</h1>
-      <h4>Escaparate en línea para recoger ideas a través de la tecnología</h4>
-      <button>NUEVO PROYECTO</button>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+      <main>
+        <h1>Proyectos Molones</h1>
+        <h4>
+          Escaparate en línea para recoger ideas a través de la tecnología
+        </h4>
+        <button>NUEVO PROYECTO</button>
+        <div>
+          <p>Nombre del proyecto:</p>
+          <p>Descripción:</p>
+          <p>Tecnologías que usa:</p>
+        </div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </main>
       <footer>
         <img className="logoSponsor" src={Logo} alt="Logo Adalab" />
       </footer>
