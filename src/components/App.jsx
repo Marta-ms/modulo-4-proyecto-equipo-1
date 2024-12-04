@@ -7,6 +7,7 @@ import imageUser from "../images/perfil-usuaria.jpg";
 import imageProject from "../images/Fondo-img.jpg";
 import { Routes, Route } from "react-router-dom";
 import Landing from "./Landing";
+import ProyectList from "./ProyectList";
 //import ProyectList from "./ProyectList";
 
 function App() {
@@ -83,9 +84,13 @@ function App() {
                 dataApi={dataApi}
               />
               <Footer />
+              
             </div>
           }
         />
+        <Route path="/ProyectList" element={<ProyectList />} />
+        
+        
       </Routes>
     </>
   );
