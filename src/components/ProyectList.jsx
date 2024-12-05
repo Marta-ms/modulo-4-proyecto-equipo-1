@@ -1,19 +1,12 @@
 import "../scss/layout/ProyectList.scss";
-import Logo from "../images/adalab.png";
-import Laptop from "../images/laptop-code-solid.svg";
+import Header from "./Header";
+import Footer from "./Footer";
 
 
 function ProyectList() {
   return (
     <>
-      <header>
-        <img
-          className="header__companyLogo"
-          src={Laptop}
-          alt="Logo proyectos molones"
-        />
-        <img className="logoSponsor" src={Logo} alt="Logo Adalab" />
-      </header>
+      <Header />
       <main>
         <h1>Proyectos Molones</h1>
         <h4>
@@ -29,9 +22,7 @@ function ProyectList() {
         <div></div>
         <div></div>
       </main>
-      <footer>
-        <img className="logoSponsor" src={Logo} alt="Logo Adalab" />
-      </footer>
+      <Footer />
     </>
   );
 }
