@@ -21,7 +21,7 @@ function Main({
           Escaparate en línea para recoger ideas a través de la tecnología
         </p>
         
-        <Link className="button--link" to="/ProyectList">Ver proyectos
+        <Link className="button--link" to="/proyectList">Ver proyectos
         {/* <a className="button--link" href="./home/proyects">Ver proyectos</a> */}
         </Link>
       </section>

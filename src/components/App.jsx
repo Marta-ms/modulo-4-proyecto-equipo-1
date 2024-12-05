@@ -88,7 +88,7 @@ function App() {
             </div>
           }
         />
-        <Route path="/ProyectList" element={<ProyectList />} />
+        <Route path="/proyectList" element={<ProyectList />} />
         
         
       </Routes>

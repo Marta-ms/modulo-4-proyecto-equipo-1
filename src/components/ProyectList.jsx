@@ -3,9 +3,10 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 
+
 function ProyectList() {
   return (
-    <>
+    <div className="container-projectsList">
       <Header />
       <main>
         <h1>Proyectos Molones</h1>
@@ -23,7 +24,7 @@ function ProyectList() {
         <div></div>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 
