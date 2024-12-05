@@ -2,6 +2,7 @@ import "../scss/layout/ProyectList.scss";
 import Logo from "../images/adalab.png";
 import Laptop from "../images/laptop-code-solid.svg";
 
+
 function ProyectList() {
   return (
     <>

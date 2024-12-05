@@ -20,6 +20,7 @@ function Main({
         <p className="hero__text">
           Escaparate en línea para recoger ideas a través de la tecnología
         </p>
+        
         <Link className="button--link" to="/ProyectList">Ver proyectos
         {/* <a className="button--link" href="./home/proyects">Ver proyectos</a> */}
         </Link>
