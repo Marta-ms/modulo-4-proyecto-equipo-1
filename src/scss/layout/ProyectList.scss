@@ -1,3 +1,17 @@
 .container-projectsList {
+    padding: 22px 22px 0 22px;
     background-color: rgb(131, 116, 31);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    
+}
+
+
+
+
+@media screen and (min-width: 420px) {
+    :root {
+        font-size: 12px;
+    }
 }
