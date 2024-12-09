@@ -7,7 +7,7 @@ function Preview({ personalInfo }) {
       ></div>
       <article className="card">
         <h2 className="card__projectTitle">
-          <span className="card__projectTitle--text">Nombre de proyecto</span>
+          <span className="card__projectTitle--text">Nuestro proyecto</span>
         </h2>
 
         <div className="card__author">
@@ -15,18 +15,18 @@ function Preview({ personalInfo }) {
             className="card__authorPhoto"
             style={{ backgroundImage: `url(${personalInfo.photo})` }}
           ></div>
-          <h3 className="card__name">{personalInfo.autor}</h3>
-          <p className="card__job">{personalInfo.job}</p>
+          <h3 className="card__name">{personalInfo.autor || "Paquita Salas"}</h3>
+          <p className="card__job">{personalInfo.job || "Directora de PS Management"}</p>
         </div>
 
         <div className="card__project">
-          <h3 className="card__name">{personalInfo.name}</h3>
-          <p className="card__slogan">{personalInfo.slogan}</p>
-          <h3 className="card__descriptionTitle">Product description</h3>
-          <p className="card__description">{personalInfo.desc}</p>
+          <h3 className="card__name">{personalInfo.name || "Proyecto molón"}</h3>
+          <p className="card__slogan">{personalInfo.slogan || "Eslogan"}</p>
+          <h3 className="card__descriptionTitle">Descripción</h3>
+          <p className="card__description">{personalInfo.desc || "Escribe aquí en qué consiste tu proyecto"}</p>
 
           <div className="card__technicalInfo">
-            <p className="card__technologies">{personalInfo.technologies}</p>
+            <p className="card__technologies">{personalInfo.technologies || "Tecnologías usadas"}</p>
 
             <a
               className="icon icon__www"
