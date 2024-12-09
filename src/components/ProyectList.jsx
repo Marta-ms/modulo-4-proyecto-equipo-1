@@ -1,10 +1,8 @@
 import Header from "./Header";
 import Footer from "./Footer";
+import Card from "./Card";
 
-
-
-
-function ProyectList() {
+function ProyectList({ formInfo, postCardToApi, dataApi }) {
   return (
     <div className="container-projectsList">
       <Header />
@@ -15,13 +13,12 @@ function ProyectList() {
         </h4>
         <button className="button--link">NUEVO PROYECTO</button>
         <div>
-          <p>Nombre del proyecto:</p>
-          <p>Descripción:</p>
-          <p>Tecnologías que usa:</p>
+          <Card
+            formInfo={formInfo}
+            postCardToApi={postCardToApi}
+            dataApi={dataApi}
+          />
         </div>
-        <div></div>
-        <div></div>
-        <div></div>
       </main>
       <Footer className="footer" />
     </div>

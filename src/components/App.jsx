@@ -8,7 +8,6 @@ import imageProject from "../images/Fondo-img.jpg";
 import { Routes, Route } from "react-router-dom";
 import Landing from "./Landing";
 import ProyectList from "./ProyectList";
-//import ProyectList from "./ProyectList";
 
 function App() {
   const [formInfo, setFormInfo] = useState({
@@ -84,13 +83,19 @@ function App() {
                 dataApi={dataApi}
               />
               <Footer />
-              
             </div>
           }
         />
-        <Route path="/proyectList" element={<ProyectList />} />
-        
-        
+        <Route
+          path="/proyectList"
+          element={
+            <ProyectList
+              formInfo={formInfo}
+              postCardToApi={postCardToApi}
+              dataApi={dataApi}
+            />
+          }
+        />
       </Routes>
     </>
   );
