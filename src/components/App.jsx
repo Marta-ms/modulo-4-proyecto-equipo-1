@@ -22,7 +22,7 @@ function App() {
     image: { imageProject },
     photo: { imageUser },
   });
-  console.log(formInfo);
+  // console.log(formInfo);
 
   const handleChangeInput = (valueInput, idInput) => {
     console.log(idInput, valueInput);
@@ -91,8 +91,6 @@ function App() {
           element={
             <ProyectList
               formInfo={formInfo}
-              postCardToApi={postCardToApi}
-              dataApi={dataApi}
             />
           }
         />

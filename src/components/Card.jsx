@@ -1,10 +1,10 @@
-function Card() {
+function Card({ personalInfo }) {
   return (
     <section className="preview">
-      <div
+      {/* <div
         style={{ backgroundImage: `url(${personalInfo.image})` }}
         className="projectImage"
-      ></div>
+      ></div> */}
       <article className="card">
         <h2 className="card__projectTitle">
           <span className="card__projectTitle--text">Nuestro proyecto</span>

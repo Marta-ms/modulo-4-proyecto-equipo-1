@@ -2,7 +2,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Card from "./Card";
 
-function ProyectList({ formInfo, postCardToApi, dataApi }) {
+function ProyectList({ formInfo }) {
   return (
     <div className="container-projectsList">
       <Header />
@@ -13,11 +13,7 @@ function ProyectList({ formInfo, postCardToApi, dataApi }) {
         </h4>
         <button className="button--link">NUEVO PROYECTO</button>
         <div>
-          <Card
-            formInfo={formInfo}
-            postCardToApi={postCardToApi}
-            dataApi={dataApi}
-          />
+          <Card personalInfo={formInfo}/>
         </div>
       </main>
       <Footer className="footer" />
