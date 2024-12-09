@@ -1,40 +1,40 @@
 function Card({ personalInfo }) {
   return (
-    <section className="preview">
+    <section className="previewtwo">
       {/* <div
         style={{ backgroundImage: `url(${personalInfo.image})` }}
         className="projectImage"
       ></div> */}
-      <article className="card">
-        <h2 className="card__projectTitle">
-          <span className="card__projectTitle--text">Nuestro proyecto</span>
+      <article className="cardtwo">
+        <h2 className="cardtwo__projectTitle">
+          <span className="cardtwo__projectTitle--text">Nuestro proyecto</span>
         </h2>
 
-        <div className="card__author">
+        <div className="cardtwo__author">
           <div
-            className="card__authorPhoto"
+            className="cardtwo__authorPhoto"
             style={{ backgroundImage: `url(${personalInfo.photo})` }}
           ></div>
-          <h3 className="card__name">
+          <h3 className="cardtwo__name">
             {personalInfo.autor || "Paquita Salas"}
           </h3>
-          <p className="card__job">
+          <p className="cardtwo__job">
             {personalInfo.job || "Directora de PS Management"}
           </p>
         </div>
 
-        <div className="card__project">
-          <h3 className="card__name">
+        <div className="cardtwo__project">
+          <h3 className="cardtwo__name">
             {personalInfo.name || "Proyecto molón"}
           </h3>
-          <p className="card__slogan">{personalInfo.slogan || "Eslogan"}</p>
-          <h3 className="card__descriptionTitle">Descripción</h3>
-          <p className="card__description">
+          <p className="cardtwo__slogan">{personalInfo.slogan || "Eslogan"}</p>
+          <h3 className="cardtwo__descriptionTitle">Descripción</h3>
+          <p className="cardtwo__description">
             {personalInfo.desc || "Escribe aquí en qué consiste tu proyecto"}
           </p>
 
-          <div className="card__technicalInfo">
-            <p className="card__technologies">
+          <div className="cardtwo__technicalInfo">
+            <p className="cardtwo__technologies">
               {personalInfo.technologies || "Tecnologías usadas"}
             </p>
 
