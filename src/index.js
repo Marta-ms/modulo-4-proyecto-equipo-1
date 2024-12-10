@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 
 //crear el servidor
-const server = expres();
+const server = express();
 
 //necesito que mi servidor acepte peticiones
 server.use(cors());
