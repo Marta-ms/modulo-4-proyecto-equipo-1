@@ -1,4 +1,4 @@
-function Card({ personalInfo }) {
+function Card({ projectData }) {
   return (
     <section className="previewtwo">
       {/* <div
@@ -13,41 +13,41 @@ function Card({ personalInfo }) {
         <div className="cardtwo__author">
           <div
             className="cardtwo__authorPhoto"
-            style={{ backgroundImage: `url(${personalInfo.photo})` }}
+            style={{ backgroundImage: `url(${projectData.photo})` }}
           ></div>
           <h3 className="cardtwo__name">
-            {personalInfo.autor || "Paquita Salas"}
+            {projectData.autor || "Paquita Salas"}
           </h3>
           <p className="cardtwo__job">
-            {personalInfo.job || "Directora de PS Management"}
+            {projectData.job || "Directora de PS Management"}
           </p>
         </div>
 
         <div className="cardtwo__project">
           <h3 className="cardtwo__name">
-            {personalInfo.name || "Proyecto molón"}
+            {projectData.name || "Proyecto molón"}
           </h3>
-          <p className="cardtwo__slogan">{personalInfo.slogan || "Eslogan"}</p>
+          <p className="cardtwo__slogan">{projectData.slogan || "Eslogan"}</p>
           <h3 className="cardtwo__descriptionTitle">Descripción</h3>
           <p className="cardtwo__description">
-            {personalInfo.desc || "Escribe aquí en qué consiste tu proyecto"}
+            {projectData.desc || "Escribe aquí en qué consiste tu proyecto"}
           </p>
 
           <div className="cardtwo__technicalInfo">
             <p className="cardtwo__technologies">
-              {personalInfo.technologies || "Tecnologías usadas"}
+              {projectData.technologies || "Tecnologías usadas"}
             </p>
 
             <a
               className="icon icon__www"
-              href={personalInfo.demo}
+              href={projectData.demo}
               title="Haz click para ver el proyecto online"
             >
               Web link
             </a>
             <a
               className="icon icon__github"
-              href={personalInfo.repo}
+              href={projectData.repo}
               title="Haz click para ver el código del proyecto"
             >
               GitHub link

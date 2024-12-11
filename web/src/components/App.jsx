@@ -76,7 +76,6 @@ function App() {
         setProjectsList(data.result);
       });
   }, []);
-  console.log(projectsList);
 
   return (
     <>

@@ -29,7 +29,7 @@ const projects = [
         desc: "Pideme lo que quieras",
         autor: "Paquita",
         job: "Señora niña bonita",
-        photo: "perfil-usuaria.jpg",
+        // photo: "perfil-usuaria.jpg",
     },
     {
         name: "Kriss proyecto",
@@ -40,7 +40,7 @@ const projects = [
         desc: "Soñar es gratis",
         autor: "Kriss",
         job: "programadora de sueños",
-        photo: "perfil-usuaria.jpg",
+        // photo: "perfil-usuaria.jpg",
     }
 ]
 
