@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../scss/App.scss";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -66,6 +66,18 @@ function App() {
       });
   };
 
+  //fetch frontend para lista de proyectos falsos
+  const [projectsList, setProjectsList] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5001/projects/list")
+      .then((res) => res.json())
+      .then((data) => {
+        setProjectsList(data.result);
+      });
+  }, []);
+  console.log(projectsList);
+
   return (
     <>
       <Routes>
@@ -88,11 +100,7 @@ function App() {
         />
         <Route
           path="/proyectList"
-          element={
-            <ProyectList
-              formInfo={formInfo}
-            />
-          }
+          element={<ProyectList projectsList={projectsList} />}
         />
       </Routes>
     </>

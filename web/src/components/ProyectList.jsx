@@ -2,7 +2,10 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Card from "./Card";
 
-function ProyectList({ formInfo }) {
+function ProyectList({ projectsList }) {
+  const usersElements = projectsList.map((project) => {
+    return <Card key={project.name} projectData={project} />;
+  });
   return (
     <div className="container-projectsList">
       <Header />
@@ -13,7 +16,7 @@ function ProyectList({ formInfo }) {
         </h4>
         <button className="button--link">NUEVO PROYECTO</button>
         <div>
-          <Card personalInfo={formInfo}/>
+          <ul>{usersElements}</ul>
         </div>
       </main>
       <Footer className="footer" />
