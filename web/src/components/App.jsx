@@ -24,6 +24,10 @@ function App() {
   });
   // console.log(formInfo);
 
+  useEffect(() => {
+    localStorage.setItem("formInfo", JSON.stringify(formInfo));
+  }, [formInfo]);
+
   const handleChangeInput = (valueInput, idInput) => {
     console.log(idInput, valueInput);
 
