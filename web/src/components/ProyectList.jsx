@@ -16,7 +16,7 @@ function ProyectList({ projectsList }) {
         </h4>
         <button className="button--link">NUEVO PROYECTO</button>
         <div>
-          <ul>{usersElements}</ul>
+          <ul className="js_list">{usersElements}</ul>
         </div>
       </main>
       <Footer className="footer" />
