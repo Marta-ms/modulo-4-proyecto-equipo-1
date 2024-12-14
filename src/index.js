@@ -61,9 +61,46 @@ server.get("/api/projects", async (req, res) => {
             message: result
         });
     }
-
-
 })
+
+server.post("/api/projects", async (req, res) => {
+    try {
+        const { name, slogan, repo, demo, technologies, desc, autor, job, image, photo } = req.body;
+        if (!name || !autor) {
+            return res.status(400).json({
+                status: "error",
+                message: "Nombre del proyecto y autor son obligatorios",
+            });
+        }
+        
+    const connection = await getDBConnection();
+    const [authorResult] = await connection.query(
+        "INSERT INTO author (name, job, photo) VALUES (?, ?, ?)",
+        [autor, job, photo]
+    );
+    const authorId = authorResult.insertId;
+    const [projectResult] = await connection.query(
+        "INSERT INTO proyects (title, slogan, description, technology, demo, repository, image, fk_author) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        [name, slogan, desc, technologies, demo, repo, image, authorId]
+    );
+
+    connection.end();
+
+
+    res.status(201).json({
+        status: "success",
+        projectId: projectResult.insertId,
+    });
+} catch (error) {
+    console.error("Error creando el proyecto:", error.message);
+    res.status(500).json({
+      status: "error",
+      message: "Error interno del servidor",
+    });
+}
+})
+
+server
 
 
 //servidor ficheros estaticos

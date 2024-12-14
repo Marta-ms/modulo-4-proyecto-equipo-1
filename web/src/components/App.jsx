@@ -9,6 +9,7 @@ import { Routes, Route } from "react-router-dom";
 import Landing from "./Landing";
 import ProyectList from "./ProyectList";
 
+
 function App() {
   const [formInfo, setFormInfo] = useState({
     name: "",
@@ -55,19 +56,10 @@ function App() {
   };
 
   const [dataApi, setDataApi] = useState("");
-  const postCardToApi = (formInfo) => {
-    return fetch("https://dev.adalab.es/api/projectCard", {
-      method: "POST",
-      body: JSON.stringify(formInfo),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data.cardURL);
-        setDataApi(data.cardURL);
-      });
+  const handleSaveProject = () => {
+    postCardToApi(formInfo)
+      .then((result) => setDataApi(result))
+      .catch((error) => console.error(error.message));
   };
 
 
@@ -84,7 +76,7 @@ function App() {
               <Main
                 onChangeInput={handleChangeInput}
                 formInfo={formInfo}
-                postCardToApi={postCardToApi}
+                postCardToApi={handleSaveProject}
                 dataApi={dataApi}
               />
               <Footer />

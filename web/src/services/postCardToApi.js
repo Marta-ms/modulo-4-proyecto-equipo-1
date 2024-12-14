@@ -1,20 +1,25 @@
-const postCardToApi = (formInfo, setDataApi) => {
-    return fetch("https://dev.adalab.es/api/projectCard", {
-        method: "POST",
-        body: JSON.stringify(formInfo),
-        headers: {
-            "Content-Type": "application/json"
-        },
+const postCardToApi = (formInfo) => {
+    return fetch("http://localhost:3307/api/projects", {
+      method: "POST",
+      body: JSON.stringify(formInfo),
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            return (
-                setDataApi(data.cardURL)
-
-            )
-
-        })
-};
-
-export default postCardToApi;
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Error al guardar el proyecto");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        return `Proyecto creado con ID: ${data.projectId}`; 
+      })
+      .catch((error) => {
+        console.error("Error:", error.message);
+        return "Hubo un error al guardar el proyecto";
+      });
+  };
+  
+  export default postCardToApi;
