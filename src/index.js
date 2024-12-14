@@ -43,10 +43,48 @@ server.listen(port, () => {
 });
 
 //enpoint
+
+
+server.post("/api/projects", async (req, res) => {
+            
+    const connection = await getDBConnection();
+    const info = req.body;
+    console.log("Datos que me envía frontend: ", info);
+    
+    const queryAuthor = "INSERT INTO author (name, job, photo) VALUES (?, ?, ?)";
+    const [result] = await connection.query(queryAuthor, [
+        info.name,
+        info.job,
+        info.photo
+    ]);
+
+    const queryProject = "INSERT INTO proyects (title, slogan, description, technology, demo, repository, image, fk_author) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    const [projectResult] = await connection.query(queryProject, [
+        info.title,
+        info.slogan,
+        info.desc,
+        info.technologies,
+        info.demo,
+        info.repo,
+        info.image,
+        result.insertId
+    ]);
+
+    connection.end();
+
+    console.log("Resultado de la query: ", result);
+    res.status(201).json({
+        status: "success",
+        projectId: projectResult.insertId
+    });
+})
+
+
 server.get("/api/projects", async (req, res) => {
+    const name = req.query.name;
     const connection = await getDBConnection();
     const sqlQuery = "SELECT * FROM author INNER JOIN proyects ON author.idAuthor = proyects.fk_author";
-    const [result] = await connection.query(sqlQuery);
+    const [result] = await connection.query(sqlQuery, [name]);
     
     connection.end();
 
@@ -62,45 +100,6 @@ server.get("/api/projects", async (req, res) => {
         });
     }
 })
-
-server.post("/api/projects", async (req, res) => {
-    try {
-        const { name, slogan, repo, demo, technologies, desc, autor, job, image, photo } = req.body;
-        if (!name || !autor) {
-            return res.status(400).json({
-                status: "error",
-                message: "Nombre del proyecto y autor son obligatorios",
-            });
-        }
-        
-    const connection = await getDBConnection();
-    const [authorResult] = await connection.query(
-        "INSERT INTO author (name, job, photo) VALUES (?, ?, ?)",
-        [autor, job, photo]
-    );
-    const authorId = authorResult.insertId;
-    const [projectResult] = await connection.query(
-        "INSERT INTO proyects (title, slogan, description, technology, demo, repository, image, fk_author) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-        [name, slogan, desc, technologies, demo, repo, image, authorId]
-    );
-
-    connection.end();
-
-
-    res.status(201).json({
-        status: "success",
-        projectId: projectResult.insertId,
-    });
-} catch (error) {
-    console.error("Error creando el proyecto:", error.message);
-    res.status(500).json({
-      status: "error",
-      message: "Error interno del servidor",
-    });
-}
-})
-
-server
 
 
 //servidor ficheros estaticos
