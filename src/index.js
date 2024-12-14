@@ -44,6 +44,7 @@ const projects = [
     }
 ]
 
+
 server.get("/projects/list", (request, response) => {
     response.status(200).json({ succes: true, result: projects })
 })
