@@ -1,27 +1,35 @@
-import React { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Card from "./Card";
 
 function ProyectList() {
 
-  const [projects, setProjects] = useState([]);
-
+    const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     useEffect(() => {
-      const fetchProjects = async () => {
-        try { 
-        const response = await fetch("http://localhost:3307/api/projects");
-        const dataAuthors = await response.json();
-        setProjects(dataAuthors.message);
-    } catch (error) {
-      console.error("Error fetching projects:", error);
-    }
-    };
+      fetch("http://localhost:3307/api/projects")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error al obtener proyectos");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (data.status === "succes") {
+          setProjects(data.message); // Aquí almacenas los proyectos
+        } else {
+          throw new Error(data.message || "Error desconocido");
+        }
+      })
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false));
+  }, []);
 
-
-  fetchProjects();
-}, []);
-
+  if (loading) return <p>Cargando...</p>;
+  if (error) return <p>Error: {error}</p>;
+    
 return (
     <div className="container-projectsList">
       <Header />

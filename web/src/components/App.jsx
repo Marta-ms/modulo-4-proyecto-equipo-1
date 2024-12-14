@@ -70,16 +70,6 @@ function App() {
       });
   };
 
-  //fetch frontend para lista de proyectos falsos
-  const [projectsList, setProjectsList] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:5001/projects/list")
-      .then((res) => res.json())
-      .then((data) => {
-        setProjectsList(data.result);
-      });
-  }, []);
 
   return (
     <>
@@ -103,7 +93,7 @@ function App() {
         />
         <Route
           path="/proyectList"
-          element={<ProyectList projectsList={projectsList} />}
+          element={<ProyectList />}
         />
       </Routes>
     </>

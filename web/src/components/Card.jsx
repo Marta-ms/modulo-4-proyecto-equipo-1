@@ -1,6 +1,18 @@
 function Card({ projectData }) {
-  const { photo, name, job, title, slogan, description, technology, demo, repository } = projectData;
- 
+
+  const {
+    photo,
+    name,
+    job,
+    title,
+    slogan,
+    description,
+    technology,
+    demo,
+    repository,
+  } = projectData;
+
+  
   return (
     <section className="previewtwo">
       {/* <div
