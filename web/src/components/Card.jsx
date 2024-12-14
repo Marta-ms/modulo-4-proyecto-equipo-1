@@ -1,4 +1,6 @@
 function Card({ projectData }) {
+  const { photo, name, job, title, slogan, description, technology, demo, repository } = projectData;
+ 
   return (
     <section className="previewtwo">
       {/* <div
@@ -13,41 +15,41 @@ function Card({ projectData }) {
         <div className="cardtwo__author">
           <div
             className="cardtwo__authorPhoto"
-            style={{ backgroundImage: `url(${projectData.photo})` }}
+            style={{ backgroundImage: `url(${photo || ""})` }}
           ></div>
           <h3 className="cardtwo__name">
-            {projectData.autor || "Paquita Salas"}
+            {name || "Paquita Salas"}
           </h3>
           <p className="cardtwo__job">
-            {projectData.job || "Directora de PS Management"}
+            {job || "Directora de PS Management"}
           </p>
         </div>
 
         <div className="cardtwo__project">
           <h3 className="cardtwo__name">
-            {projectData.name || "Proyecto molón"}
+            {title || "Proyecto molón"}
           </h3>
-          <p className="cardtwo__slogan">{projectData.slogan || "Eslogan"}</p>
+          <p className="cardtwo__slogan">{slogan || "Eslogan"}</p>
           <h3 className="cardtwo__descriptionTitle">Descripción</h3>
           <p className="cardtwo__description">
-            {projectData.desc || "Escribe aquí en qué consiste tu proyecto"}
+            {description || "Escribe aquí en qué consiste tu proyecto"}
           </p>
 
           <div className="cardtwo__technicalInfo">
             <p className="cardtwo__technologies">
-              {projectData.technologies || "Tecnologías usadas"}
+              {technology || "Tecnologías usadas"}
             </p>
 
             <a
               className="icon icon__www"
-              href={projectData.demo}
+              href={demo || "#"}
               title="Haz click para ver el proyecto online"
             >
               Web link
             </a>
             <a
               className="icon icon__github"
-              href={projectData.repo}
+              href={repository || "#"}
               title="Haz click para ver el código del proyecto"
             >
               GitHub link
