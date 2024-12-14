@@ -1,30 +1,20 @@
-//import postCardToApi from "../services/postCardToApi";
 import GetAvatar from "./GetAvatar";
 
-function Form({ onChangeInput, formInfo, postCardToApi, dataApi }) {
+function Form({ onChangeInput, formInfo, handleSaveProject, dataApi }) {
   const handleChangeInput = (event) => {
-    console.log(event.target.id);
-    onChangeInput(event.target.value, event.target.id); //value es la información que quiero enviar hacia App (la madre)
+    onChangeInput(event.target.value, event.target.id);
   };
 
-  const handleSaveProject = (ev) => {
-    ev.preventDefault();
-
-    if (!formInfo.name || !formInfo.autor) {
-      alert("El nombre del proyecto y el autor son obligatorios");
-      return;
-    }
-    postCardToApi(formInfo);
-  };
   const formImages = (event) => {
     onChangeInput(event, "photo");
   };
+
   const formImageProyect = (event) => {
     onChangeInput(event, "image");
   };
 
   return (
-    <form className="addForm">
+    <form className="addForm" onSubmit={handleSaveProject}>
       <h2 className="title">Información</h2>
       <fieldset className="addForm__group">
         <legend className="addForm__title">Cuéntanos sobre el proyecto</legend>
@@ -130,13 +120,13 @@ function Form({ onChangeInput, formInfo, postCardToApi, dataApi }) {
           name="photo"
           id="photo"
         />
-        <button onClick={handleSaveProject} className="button--large">
+        <button type="submit" className="button--large">
           Guardar proyecto
         </button>
 
         <a href={dataApi} target="_blank" rel="noopener noreferrer">
-  {dataApi ? <p>¡Proyecto guardado! Haz clic aquí para verlo</p> : null}
-</a>
+          {dataApi ? <p>¡Proyecto guardado! Haz clic aquí para verlo</p> : null}
+        </a>
       </fieldset>
     </form>
   );

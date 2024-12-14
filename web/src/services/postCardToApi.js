@@ -14,7 +14,7 @@ const postCardToApi = (formInfo) => {
       })
       .then((data) => {
         console.log(data);
-        return `Proyecto creado con ID: ${data.projectId}`; 
+        return `http://localhost:3307/projects/${data.projectId}`; 
       })
       .catch((error) => {
         console.error("Error:", error.message);

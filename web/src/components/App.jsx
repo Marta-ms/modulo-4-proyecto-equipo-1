@@ -8,7 +8,7 @@ import imageProject from "../images/Fondo-img.jpg";
 import { Routes, Route } from "react-router-dom";
 import Landing from "./Landing";
 import ProyectList from "./ProyectList";
-
+import postCardToApi from "../services/postCardToApi";
 
 function App() {
   const [formInfo, setFormInfo] = useState({
@@ -23,51 +23,44 @@ function App() {
     image: { imageProject },
     photo: { imageUser },
   });
-  // console.log(formInfo);
+
+  const [dataApi, setDataApi] = useState("");
 
   useEffect(() => {
     localStorage.setItem("formInfo", JSON.stringify(formInfo));
   }, [formInfo]);
 
   const handleChangeInput = (valueInput, idInput) => {
-    console.log(idInput, valueInput);
+    setFormInfo((prevState) => ({
+      ...prevState,
+      [idInput]: valueInput,
+    }));
+  };
 
-    if (idInput === "name") {
-      setFormInfo({ ...formInfo, name: valueInput });
-    } else if (idInput === "slogan") {
-      setFormInfo({ ...formInfo, slogan: valueInput });
-    } else if (idInput === "desc") {
-      setFormInfo({ ...formInfo, desc: valueInput });
-    } else if (idInput === "job") {
-      setFormInfo({ ...formInfo, job: valueInput });
-    } else if (idInput === "autor") {
-      setFormInfo({ ...formInfo, autor: valueInput });
-    } else if (idInput === "technologies") {
-      setFormInfo({ ...formInfo, technologies: valueInput });
-    } else if (idInput === "repo") {
-      setFormInfo({ ...formInfo, repo: valueInput });
-    } else if (idInput === "demo") {
-      setFormInfo({ ...formInfo, demo: valueInput });
-    } else if (idInput === "image") {
-      setFormInfo({ ...formInfo, image: valueInput });
-    } else if (idInput === "photo") {
-      setFormInfo({ ...formInfo, photo: valueInput });
+  const handleSaveProject = (ev) => {
+    ev.preventDefault();
+
+    if (!formInfo.name || !formInfo.autor) {
+      alert("El nombre del proyecto y el autor son obligatorios");
+      return;
     }
-  };
 
-  const [dataApi, setDataApi] = useState("");
-  const handleSaveProject = () => {
+    console.log("Enviando datos al API:", formInfo);
+
     postCardToApi(formInfo)
-      .then((result) => setDataApi(result))
-      .catch((error) => console.error(error.message));
+      .then((result) => {
+        console.log("Respuesta del API:", result);
+        setDataApi(result); // Guarda el enlace o ID retornado
+      })
+      .catch((error) => {
+        console.error("Error al guardar:", error.message);
+      });
   };
-
 
   return (
     <>
       <Routes>
         <Route path="/" element={<Landing />} />
-
         <Route
           path="/home"
           element={
@@ -76,17 +69,14 @@ function App() {
               <Main
                 onChangeInput={handleChangeInput}
                 formInfo={formInfo}
-                postCardToApi={handleSaveProject}
+                handleSaveProject={handleSaveProject}
                 dataApi={dataApi}
               />
               <Footer />
             </div>
           }
         />
-        <Route
-          path="/proyectList"
-          element={<ProyectList />}
-        />
+        <Route path="/proyectList" element={<ProyectList />} />
       </Routes>
     </>
   );
