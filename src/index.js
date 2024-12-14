@@ -75,7 +75,7 @@ server.post("/api/projects", async (req, res) => {
     console.log("Resultado de la query: ", result);
     res.status(201).json({
         status: "success",
-        projectId: projectResult.insertId
+        cardUrl: ""
     });
 })
 
