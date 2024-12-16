@@ -6,6 +6,9 @@ const mysql = require("mysql2/promise");
 //así podemos usar la variable de estado
 require("dotenv").config();
 
+//para usar motor de plantillas
+server.set("view engine", "ejs");
+
 //crear el servidor
 const server = express();
 
@@ -103,29 +106,31 @@ server.post("/api/projects", async (req, res) => {
 })
 
 //motor de plantillas --> renderizar una pag web que sea el detalle del proyecto
-// server.get("detail/:idProyect", async(req, res) => {
-//     /*
-//         -recoger el id que me envía frontend
-//         -conectarme a la bbdd
-//         -buscar en mi base de datos las info del proyecto con su autor
-//         -finalizar la conexión con la bbdd
-//         -responder a frontend --> renderizar la página web
-//     */
+server.get("detail/:idProyect", async (req, res) => {
+    //     /*
+    //         -recoger el id que me envía frontend
+    const idNewAuthor = autorResult.insertId; //id del autor que se acaba de añadir
 
-//     const id = req.params.idProyect;
-//     const connection = await getDBConnection();
-//     const query = "SELECT * FROM author INNER JOIN proyects ON proyects.fk_author = author.idAuthor WHERE proyect.id = ?";
+    //         -conectarme a la bbdd
+    //         -buscar en mi base de datos las info del proyecto con su autor
+    //         -finalizar la conexión con la bbdd
+    //         -responder a frontend --> renderizar la página web
+    //     */
 
-//     const [result] = await connection.query(query, [id]);
+    const id = req.params.idProyect;
+    const connection = await getDBConnection();
+    const query = "SELECT * FROM author INNER JOIN proyects ON proyects.fk_author = author.idAuthor WHERE proyect.id = ?";
 
-//     /* 
-//     Crear carpeta views y fichero detailProject.ejs
-//     escribir con sitaxis raruna pa recoger la info
+    const [result] = await connection.query(query, [id]);
 
-//     */
+    //     /* 
+    //     Crear carpeta views y fichero detailProject.ejs
+    //     escribir con sitaxis raruna pa recoger la info
 
-//     res.render("detailProject", { project: result[0]})
-// })
+    //     */
+
+    res.render("detailProject", { project: result[0] })
+})
 
 
 
