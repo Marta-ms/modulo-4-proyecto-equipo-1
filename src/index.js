@@ -3,40 +3,43 @@ const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql2/promise");
 
+//así podemos usar la variable de estado
+require("dotenv").config();
+
 //crear el servidor
 const server = express();
 
 //necesito que mi servidor acepte peticiones
 server.use(cors());
 
-server.use(express.json({ limit: "25mb"}));
+server.use(express.json({ limit: "25mb" }));
 
 
 async function getDBConnection() {
     try {
-    const connection = await mysql.createConnection({
-        // configuración
-        host: "c2dnm.h.filess.io",
-        user: "ProyectoModulo4_teachface",
-        password: "497c301336f495cafac27ef58cc33c4ee109aede",
-        database: "ProyectoModulo4_teachface",
-        port: "3307"
-    });
+        const connection = await mysql.createConnection({
+            // configuración
+            host: "c2dnm.h.filess.io",
+            user: "ProyectoModulo4_teachface",
+            password: process.env.PASSWORD_DB,
+            database: "ProyectoModulo4_teachface",
+            port: process.env.PORT
+        });
 
-    const [rows] = await connection.query("SELECT 1 + 1 AS result");
-    console.log("Conexión exitosa", rows);
-    return connection;
-} catch (error) {
-    console.error("Error conectando la base de datos", error.message);
-    throw error;
-}
+        const [rows] = await connection.query("SELECT 1 + 1 AS result");
+        console.log("Conexión exitosa", rows);
+        return connection;
+    } catch (error) {
+        console.error("Error conectando la base de datos", error.message);
+        throw error;
+    }
 }
 getDBConnection();
 
 
 
 //establecer puerto de conexion
-const port = 3307;
+const port = process.env.PORT;
 server.listen(port, () => {
     console.log("Server is listening in http://localhost:" + port);
 
@@ -49,7 +52,7 @@ server.get("/api/projects", async (req, res) => {
     const connection = await getDBConnection();
     const sqlQuery = "SELECT * FROM author INNER JOIN proyects ON author.idAuthor = proyects.fk_author";
     const [result] = await connection.query(sqlQuery, [name]);
-    
+
     connection.end();
 
     if (result.length === 0) {
@@ -58,7 +61,7 @@ server.get("/api/projects", async (req, res) => {
             message: "no se encontró nada"
         })
     } else {
-        res.status(200).json({ 
+        res.status(200).json({
             status: "succes",
             message: result
         });
@@ -66,11 +69,11 @@ server.get("/api/projects", async (req, res) => {
 })
 
 server.post("/api/projects", async (req, res) => {
-            
+
     const connection = await getDBConnection();
     const info = req.body;
     console.log("Datos que me envía frontend: ", info);
-    
+
     const queryAuthor = "INSERT INTO author (name, job, photo) VALUES (?, ?, ?)";
     const [result] = await connection.query(queryAuthor, [
         info.autor,
@@ -118,7 +121,7 @@ server.post("/api/projects", async (req, res) => {
 //     /* 
 //     Crear carpeta views y fichero detailProject.ejs
 //     escribir con sitaxis raruna pa recoger la info
-    
+
 //     */
 
 //     res.render("detailProject", { project: result[0]})
