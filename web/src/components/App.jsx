@@ -21,8 +21,8 @@ function App() {
     desc: "",
     autor: "",
     job: "",
-    image: { imageProject },
-    photo: { imageUser },
+    image: "",
+    photo: "",
   });
 
   const [urlProject, setUrlProject] = useState("");
