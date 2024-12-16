@@ -58,10 +58,11 @@ function GetAvatar({ updateAvatar, text = "Get avatar!" }) {
 
   return (
     <div className="get-avatar">
-      <label className="get-avatar__label">
+      <label htmlFor="image" className="button">
         {text}
         <input
           type="file"
+          className="addForm__hidden"
           ref={myFileField}
           style={{ display: "none" }}
           onChange={uploadImage}
