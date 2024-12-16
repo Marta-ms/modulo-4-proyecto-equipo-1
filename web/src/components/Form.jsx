@@ -1,15 +1,18 @@
 import GetAvatar from "./GetAvatar";
 
-function Form({ onChangeInput, formInfo, handleSaveProject, dataApi }) {
+function Form({ onChangeInput, formInfo, handleSaveProject, urlProject }) {
   const handleChangeInput = (event) => {
     onChangeInput(event.target.value, event.target.id);
   };
 
   const formImages = (event) => {
+    console.log(event);
     onChangeInput(event, "photo");
+    
   };
 
   const formImageProyect = (event) => {
+    console.log(event);
     onChangeInput(event, "image");
   };
 
@@ -92,40 +95,22 @@ function Form({ onChangeInput, formInfo, handleSaveProject, dataApi }) {
       </fieldset>
 
       <fieldset className="addForm__group--upload">
-        <label htmlFor="image" className="button">
           <GetAvatar
             text="Subir foto del proyecto"
             id="image"
             updateAvatar={formImageProyect}
           />
-        </label>
-        <input
-          onChange={formImageProyect}
-          className="addForm__hidden"
-          type="file"
-          name="image"
-          id="image"
-        />
-        <label htmlFor="photo" className="button">
           <GetAvatar
             text="Subir foto de la autora"
             id="photo"
             updateAvatar={formImages}
           />
-        </label>
-        <input
-          onChange={formImages}
-          className="addForm__hidden"
-          type="file"
-          name="photo"
-          id="photo"
-        />
         <button type="submit" className="button--large">
           Guardar proyecto
         </button>
 
-        <a href={dataApi} target="_blank" rel="noopener noreferrer">
-          {dataApi ? <p>¡Proyecto guardado! Haz clic aquí para verlo</p> : null}
+        <a href={urlProject} target="_blank" rel="noopener noreferrer">
+          {urlProject ? <p>¡Proyecto guardado! Haz clic aquí para verlo</p> : null}
         </a>
       </fieldset>
     </form>

@@ -10,6 +10,7 @@ import Landing from "./Landing";
 import ProyectList from "./ProyectList";
 import postCardToApi from "../services/postCardToApi";
 
+
 function App() {
   const [formInfo, setFormInfo] = useState({
     name: "",
@@ -24,7 +25,7 @@ function App() {
     photo: { imageUser },
   });
 
-  const [dataApi, setDataApi] = useState("");
+  const [urlProject, setUrlProject] = useState("");
 
   useEffect(() => {
     localStorage.setItem("formInfo", JSON.stringify(formInfo));
@@ -44,17 +45,10 @@ function App() {
       alert("El nombre del proyecto y el autor son obligatorios");
       return;
     }
-
-    console.log("Enviando datos al API:", formInfo);
-
-    postCardToApi(formInfo)
-      .then((result) => {
-        console.log("Respuesta del API:", result);
-        setDataApi(result); // Guarda el enlace o ID retornado
-      })
-      .catch((error) => {
-        console.error("Error al guardar:", error.message);
-      });
+    postCardToApi(formInfo).then((data) => {
+      console.log(data);
+      //setear la url del poroyecto con lo que contesta el servidor
+    })
   };
 
   return (
@@ -70,7 +64,7 @@ function App() {
                 onChangeInput={handleChangeInput}
                 formInfo={formInfo}
                 handleSaveProject={handleSaveProject}
-                dataApi={dataApi}
+                urlProject={urlProject}
               />
               <Footer />
             </div>
