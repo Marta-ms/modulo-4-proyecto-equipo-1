@@ -3,8 +3,6 @@ import "../scss/App.scss";
 import Header from "./Header";
 import Footer from "./Footer";
 import Main from "./Main";
-import imageUser from "../images/perfil-usuaria.jpg";
-import imageProject from "../images/Fondo-img.jpg";
 import { Routes, Route } from "react-router-dom";
 import Landing from "./Landing";
 import ProyectList from "./ProyectList";

@@ -58,7 +58,7 @@ function GetAvatar({ updateAvatar, text = "Get avatar!" }) {
 
   return (
     <div className="get-avatar">
-      <label htmlFor="image" className="button">
+      <label className="button">
         {text}
         <input
           type="file"

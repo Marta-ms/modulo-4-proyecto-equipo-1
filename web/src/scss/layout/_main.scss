@@ -113,9 +113,12 @@
   aspect-ratio: 1 / 1;
   outline: solid 1px pink;
 
-  background-image: url("../images/Fondo-img.jpg");
-  background-position: top center;
-  background-size: cover;
+}
+
+.preview .projectImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .preview .card {
@@ -198,11 +201,16 @@
 .card .card__authorPhoto {
   width: 75px;
   height: 75px;
-  border-radius: 50%;
-  background-image: url("../images/perfil-usuaria.jpg");
   background-position: center;
   background-size: cover;
   margin-bottom: 0.8rem;
+}
+
+.card .card__authorPhoto img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .card .card__job {
