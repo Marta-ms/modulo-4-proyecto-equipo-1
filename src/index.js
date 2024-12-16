@@ -73,14 +73,14 @@ server.post("/api/projects", async (req, res) => {
     
     const queryAuthor = "INSERT INTO author (name, job, photo) VALUES (?, ?, ?)";
     const [result] = await connection.query(queryAuthor, [
-        info.name,
+        info.autor,
         info.job,
         info.photo
     ]);
 
     const queryProject = "INSERT INTO proyects (title, slogan, description, technology, demo, repository, image, fk_author) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     const [projectResult] = await connection.query(queryProject, [
-        info.title,
+        info.name,
         info.slogan,
         info.desc,
         info.technologies,
@@ -100,29 +100,29 @@ server.post("/api/projects", async (req, res) => {
 })
 
 //motor de plantillas --> renderizar una pag web que sea el detalle del proyecto
-server.get("detail/:idProyect", async(req, res) => {
-    /*
-        -recoger el id que me envía frontend
-        -conectarme a la bbdd
-        -buscar en mi base de datos las info del proyecto con su autor
-        -finalizar la conexión con la bbdd
-        -responder a frontend --> renderizar la página web
-    */
+// server.get("detail/:idProyect", async(req, res) => {
+//     /*
+//         -recoger el id que me envía frontend
+//         -conectarme a la bbdd
+//         -buscar en mi base de datos las info del proyecto con su autor
+//         -finalizar la conexión con la bbdd
+//         -responder a frontend --> renderizar la página web
+//     */
 
-    const id = req.params.idProyect;
-    const connection = await getDBConnection();
-    const query = "SELECT * FROM author INNER JOIN proyects ON proyects.fk_author = author.idAuthor WHERE proyect.id = ?";
+//     const id = req.params.idProyect;
+//     const connection = await getDBConnection();
+//     const query = "SELECT * FROM author INNER JOIN proyects ON proyects.fk_author = author.idAuthor WHERE proyect.id = ?";
 
-    const [result] = await connection.query(query, [id]);
+//     const [result] = await connection.query(query, [id]);
 
-    /* 
-    Crear carpeta views y fichero detailProject.ejs
-    escribir con sitaxis raruna pa recoger la info
+//     /* 
+//     Crear carpeta views y fichero detailProject.ejs
+//     escribir con sitaxis raruna pa recoger la info
     
-    */
+//     */
 
-    res.render("detailProject", { project: result[0]})
-})
+//     res.render("detailProject", { project: result[0]})
+// })
 
 
 
