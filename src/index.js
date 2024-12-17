@@ -108,7 +108,7 @@ server.post("/api/projects", async (req, res) => {
 })
 
 //motor de plantillas --> renderizar una pag web que sea el detalle del proyecto
-server.get("detail/:idProyect", async (req, res) => {
+server.get("/detail/:idProyect", async (req, res) => {
     console.log(req.params.idProyect);
     const idNewAuthor = autorResult.insertId; // recoge id del autor que se acaba de añadir
 
@@ -120,12 +120,12 @@ server.get("detail/:idProyect", async (req, res) => {
     //         -conectarme a la bbdd
     const connection = await getDBConnection();
     //         -buscar en mi base de datos las info del proyecto con su autor
-    const query = "SELECT * FROM author INNER JOIN proyects ON proyects.fk_author = author.idAuthor WHERE proyect.id = ?";
+    const query = "SELECT * FROM author INNER JOIN proyects ON proyects.fk_author = author.idAuthor WHERE id = ?";
 
     const [result] = await connection.query(query, [id]);
 
     connection.end();
-    res.render("detailProject", { project: result[0] })
+    res.render("detailProject", { project: result[0] });
 })
 
 //falta escribir sintaxis raruna%  en view
