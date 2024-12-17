@@ -9,6 +9,8 @@ const server = express();
 //necesito que mi servidor acepte peticiones
 server.use(cors());
 
+require("dotenv").config(); //para usar variables de entorno
+
 server.use(express.json({ limit: "25mb" }));
 
 
@@ -17,10 +19,10 @@ async function getDBConnection() {
         const connection = await mysql.createConnection({
             // configuración
             host: "c2dnm.h.filess.io",
-            user: "ProyectoModulo4_teachface",
-            password: "497c301336f495cafac27ef58cc33c4ee109aede",
+            user: process.env.USER_DB,
+            password: process.env.PASSWORD_DB,
             database: "ProyectoModulo4_teachface",
-            port: "3307"
+            port: process.env.PORT
         });
 
         const [rows] = await connection.query("SELECT 1 + 1 AS result");
