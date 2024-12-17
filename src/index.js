@@ -69,6 +69,7 @@ server.get("/api/projects", async (req, res) => {
             message: result
         });
     }
+
 })
 
 server.post("/api/projects", async (req, res) => {
@@ -114,17 +115,17 @@ server.get("detail/:idProyect", async (req, res) => {
     //         -responder a frontend --> renderizar la página web
     //     */
 
-    //const id = req.params.idProyect;
+    const id = req.params.idProyect;
 
     //         -conectarme a la bbdd
     const connection = await getDBConnection();
     //         -buscar en mi base de datos las info del proyecto con su autor
-    //const query = "SELECT * FROM author INNER JOIN proyects ON proyects.fk_author = author.idAuthor WHERE proyect.id = ?";
+    const query = "SELECT * FROM author INNER JOIN proyects ON proyects.fk_author = author.idAuthor WHERE proyect.id = ?";
 
-    //const [result] = await connection.query(query, [id]);
+    const [result] = await connection.query(query, [id]);
 
-    res.json({});
-    //res.render("detailProject", { project: result[0] })
+
+    res.render("detailProject", { project: result[0] })
 })
 
 //falta escribir sintaxis en view
