@@ -8,7 +8,6 @@ import Landing from "./Landing";
 import ProyectList from "./ProyectList";
 import postCardToApi from "../services/postCardToApi";
 
-
 function App() {
   const [formInfo, setFormInfo] = useState({
     name: "",
@@ -45,8 +44,8 @@ function App() {
     }
     postCardToApi(formInfo).then((data) => {
       console.log(data);
-      //setear la url del poroyecto con lo que contesta el servidor
-    })
+      setUrlProject(data);
+    });
   };
 
   return (

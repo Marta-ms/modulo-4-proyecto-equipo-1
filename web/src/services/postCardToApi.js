@@ -1,4 +1,4 @@
-  const postCardToApi = (formInfo) => {
+const postCardToApi = (formInfo) => {
     return fetch("http://localhost:3307/api/projects", {
         method: "POST",
         body: JSON.stringify(formInfo),

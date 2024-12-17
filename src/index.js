@@ -6,11 +6,12 @@ const mysql = require("mysql2/promise");
 //así podemos usar la variable de estado
 require("dotenv").config();
 
+//crear el servidor
+const server = express();
+
 //para usar motor de plantillas
 server.set("view engine", "ejs");
 
-//crear el servidor
-const server = express();
 
 //necesito que mi servidor acepte peticiones
 server.use(cors());
@@ -111,7 +112,6 @@ server.get("detail/:idProyect", async (req, res) => {
     console.log(req.params.idProyect);
     const idNewAuthor = autorResult.insertId; // recoge id del autor que se acaba de añadir
 
-    //         -finalizar la conexión con la bbdd
     //         -responder a frontend --> renderizar la página web
     //     */
 
@@ -124,11 +124,11 @@ server.get("detail/:idProyect", async (req, res) => {
 
     const [result] = await connection.query(query, [id]);
 
-
+    connection.end();
     res.render("detailProject", { project: result[0] })
 })
 
-//falta escribir sintaxis en view
+//falta escribir sintaxis raruna%  en view
 
 //servidor ficheros estaticos
 const staticServerPath = "./web/dist";
