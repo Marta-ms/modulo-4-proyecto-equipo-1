@@ -1,5 +1,10 @@
-  const postCardToApi = (formInfo) => {
-    return fetch("http://localhost:3307/api/projects", {
+const URL_PRODUCTION = "https://modulo-4-proyecto-equipo-1.onrender.com";
+const URL_LOCAL = "http://localhost:3307";
+
+const URL = process.env.NODE_ENV === "development" ? URL_LOCAL : URL_PRODUCTION;
+
+const postCardToApi = (formInfo) => {
+    return fetch(`${URL}/api/projects`, {
         method: "POST",
         body: JSON.stringify(formInfo),
         headers: {

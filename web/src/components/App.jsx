@@ -10,11 +10,6 @@ import Landing from "./Landing";
 import ProyectList from "./ProyectList";
 import postCardToApi from "../services/postCardToApi";
 
-const URL_PRODUCTION = "https://modulo-4-proyecto-equipo-1.onrender.com";
-const URL_LOCAL = "http://localhost:3307";
-
-const URL = process.env.NODE_ENV === "development" ? URL_LOCAL : URL_PRODUCTION;
-
 function App() {
   const [formInfo, setFormInfo] = useState({
     name: "",
