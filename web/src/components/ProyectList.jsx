@@ -4,12 +4,11 @@ import Footer from "./Footer";
 import Card from "./Card";
 
 function ProyectList() {
-
-    const [projects, setProjects] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    useEffect(() => {
-      fetch("http://localhost:3307/api/projects")
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    fetch("http://localhost:4001/api/projects")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Error al obtener proyectos");
@@ -29,8 +28,8 @@ function ProyectList() {
 
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error}</p>;
-    
-return (
+
+  return (
     <div className="container-projectsList">
       <Header />
       <main className="hero">
@@ -40,9 +39,11 @@ return (
         </h4>
         <button className="button--link">NUEVO PROYECTO</button>
         <div>
-          <ul className="js_list">{projects.map((project, index) => (
-            <Card key={index} projectData={project} />
-          ))}</ul>
+          <ul className="js_list">
+            {projects.map((project, index) => (
+              <Card key={index} projectData={project} />
+            ))}
+          </ul>
         </div>
       </main>
       <Footer className="footer" />
