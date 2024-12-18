@@ -10,54 +10,54 @@
 <body>
 
     <main class="previewtwo">
-        <% project.forEach((detailProject)=>{ %>
-            <div class="projectImage">
-                <%= project.image %>
+
+        <div class="projectImage">
+            <%= project.image %>
+        </div>
+        <article class="cardtwo">
+            <h2 class="cardtwo__projectTitle">
+                <span class="cardtwo__projectTitle--text">Nuestro proyecto</span>
+            </h2>
+
+            <div class="cardtwo__author">
+                <div class="cardtwo__authorPhoto"></div>
+                <h3 class="cardtwo__name">
+                    <%= project.name %>
+                </h3>
+                <p class="cardtwo__job">
+                    <%= project.job %>
+                </p>
             </div>
-            <article class="cardtwo">
-                <h2 class="cardtwo__projectTitle">
-                    <span class="cardtwo__projectTitle--text">Nuestro proyecto</span>
-                </h2>
 
-                <div class="cardtwo__author">
-                    <div class="cardtwo__authorPhoto"></div>
-                    <h3 class="cardtwo__name">
-                        <%= project.name %>
-                    </h3>
-                    <p class="cardtwo__job">
-                        <%= project.job %>
+            <div class="cardtwo__project">
+                <h3 class="cardtwo__name">
+                    <%= project.title %>
+                </h3>
+                <p class="cardtwo__slogan">
+                    <%= project.slogan %>
+                </p>
+                <h3 class="cardtwo__descriptionTitle">Descripción</h3>
+                <p class="cardtwo__description">
+                    <%= project.description %>
+                </p>
+
+                <div class="cardtwo__technicalInfo">
+                    <p class="cardtwo__technologies">
+                        <%= project.technology %>
                     </p>
+
+                    <a class="icon icon__www" href=<%=project.demo %> title="Haz click para ver el proyecto
+                        online">
+                        Web link
+                    </a>
+                    <a class="icon icon__github" href=<%=project.repository %>
+                        title="Haz click para ver el código del proyecto">
+                        GitHub link
+                    </a>
                 </div>
+            </div>
+        </article>
 
-                <div class="cardtwo__project">
-                    <h3 class="cardtwo__name">
-                        <%= project.title %>
-                    </h3>
-                    <p class="cardtwo__slogan">
-                        <%= project.slogan %>
-                    </p>
-                    <h3 class="cardtwo__descriptionTitle">Descripción</h3>
-                    <p class="cardtwo__description">
-                        <%= project.description %>
-                    </p>
-
-                    <div class="cardtwo__technicalInfo">
-                        <p class="cardtwo__technologies">
-                            <%= project.technology %>
-                        </p>
-
-                        <a class="icon icon__www" href=<%=project.demo %> title="Haz click para ver el proyecto
-                            online">
-                            Web link
-                        </a>
-                        <a class="icon icon__github" href=<%=project.repository %>
-                            title="Haz click para ver el código del proyecto">
-                            GitHub link
-                        </a>
-                    </div>
-                </div>
-            </article>
-            <% })%>
     </main>
 </body>
 

@@ -43,8 +43,8 @@ function App() {
       return;
     }
     postCardToApi(formInfo).then((data) => {
-      console.log(data);
-      setUrlProject(data);
+      console.log(data.cardUrl);
+      setUrlProject(data.cardUrl);
     });
   };
 

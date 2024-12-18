@@ -27,7 +27,7 @@ async function getDBConnection() {
             user: "ProyectoModulo4_teachface",
             password: process.env.PASSWORD_DB,
             database: "ProyectoModulo4_teachface",
-            port: process.env.PORT
+            port: 3307
         });
 
         const [rows] = await connection.query("SELECT 1 + 1 AS result");
@@ -38,7 +38,6 @@ async function getDBConnection() {
         throw error;
     }
 }
-getDBConnection();
 
 
 
@@ -103,14 +102,14 @@ server.post("/api/projects", async (req, res) => {
     console.log("Resultado de la query: ", result);
     res.status(201).json({
         status: "success",
-        cardUrl: `http://localhost:3307/detail/${projectResult.insertId}`,
+        cardUrl: `http://localhost:4001/detail/${projectResult.insertId}`,
     });
 })
 
 //motor de plantillas --> renderizar una pag web que sea el detalle del proyecto
 server.get("/detail/:idProyect", async (req, res) => {
     console.log(req.params.idProyect);
-    const idNewAuthor = autorResult.insertId; // recoge id del autor que se acaba de añadir
+    //const idNewAuthor = autorResult.insertId; // recoge id del autor que se acaba de añadir
 
     //         -responder a frontend --> renderizar la página web
     //     */
@@ -120,15 +119,14 @@ server.get("/detail/:idProyect", async (req, res) => {
     //         -conectarme a la bbdd
     const connection = await getDBConnection();
     //         -buscar en mi base de datos las info del proyecto con su autor
-    const query = "SELECT * FROM author INNER JOIN proyects ON proyects.fk_author = author.idAuthor WHERE id = ?";
+    const query = "SELECT * FROM author INNER JOIN proyects ON proyects.fk_author = author.idAuthor WHERE idProyects = ?";
 
     const [result] = await connection.query(query, [id]);
 
     connection.end();
     res.render("detailProject", { project: result[0] });
-})
 
-//falta escribir sintaxis raruna%  en view
+})
 
 //servidor ficheros estaticos
 const staticServerPath = "./web/dist";
