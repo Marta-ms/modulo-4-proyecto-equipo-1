@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Card from "./Card";
+import { Link } from "react-router-dom";
 
 function ProyectList() {
   const [projects, setProjects] = useState([]);
@@ -37,7 +38,10 @@ function ProyectList() {
         <h4 className="hero__text">
           Escaparate en línea para recoger ideas a través de la tecnología
         </h4>
-        <button className="button--link">NUEVO PROYECTO</button>
+        <Link className="button--link" to="/home">
+          NUEVO PROYECTO
+        </Link>
+        {/* <button className="button--link">NUEVO PROYECTO</button> */}
         <div>
           <ul className="js_list">
             {projects.map((project, index) => (
