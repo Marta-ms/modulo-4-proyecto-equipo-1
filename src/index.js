@@ -20,7 +20,6 @@ require("dotenv").config(); //para usar variables de entorno
 
 server.use(express.json({ limit: "25mb" }));
 
-
 async function getDBConnection() {
     try {
         const connection = await mysql.createConnection({

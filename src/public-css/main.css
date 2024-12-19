@@ -1,58 +1,160 @@
+:root {
+    /* COLORS */
+  
+    --color-black: #000000;
+    --color-black-80: rgba(0, 0, 0, 0.8);
+    --color-greyish-brown: #505050;
+    --color-greyish-brown-88: rgba(62, 62, 62, 0.88);
+    --color-dusk: #403a5f;
+    --color-greyish-brown-two: #575757;
+    --color-dark: #302c42;
+    --color-warm-grey: #909090;
+    --color-white: #ffffff;
+    --color-dark-lilac: #8176af;
+    --color-white-50: rgba(255, 255, 255, 0.5);
+  
+    /* FONTS */
+  
+    --font-title-brand: 300 1.4rem "Poppins", sans-serif;
+    --font-title-biggest: bold 3rem "Montserrat", sans-serif;
+    --font-title-big: bold 2rem "Montserrat", sans-serif;
+    --font-title-medium: 300 1.5rem "Montserrat", sans-serif;
+    --font-text-big: normal 1.2rem "Montserrat", sans-serif;
+    --font-normal: normal 10px "Montserrat", sans-serif;
+    --font-button: bold 1rem "Montserrat", sans-serif;
+    --font-card-text: 300 0.8rem "Poppins", sans-serif;
+    --font-card-section: 300 0.8rem "Poppins", sans-serif;
+    --font-card-title: 500 1.2rem "Poppins", sans-serif;
+    --font-card-subtitle: 400 1.1rem "Poppins", sans-serif;
+    --font-card-tech: 500 1rem "Catamaran", sans-serif;
+  }
+  
+  :root {
+    font: var(--font-normal); /* font-size: 10px; */
+    color: var(--color-white);
+  }
+
+  /* ICONS */
+
+.icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    color: transparent;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 0 5px 0 var(--color-greyish-brown-two);
+  }
+  
+  .icon__www {
+    background-image: url("./images/globe-solid.svg");
+  }
+  
+  .icon__github {
+    background-image: url("./images/github.svg");
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+  }
+  
+  .header .header__brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 7px 5px;
+    gap: 7px;
+  }
+  
+  .header .header__companyLogo {
+    height: 31px;
+    color: var(--color-white);
+  }
+  
+  .header .header__title {
+    font: var(--font-title-brand);
+    text-transform: capitalize;
+    color: var(--color-white);
+  }
+
 .container-projectsList {
     padding: 22px 22px 0 22px;
     background-color: rgb(131, 116, 31);
     background-size: cover;
     background-position: center;
     min-height: 100vh;
-
-}
-
-
-.previewtwo .cardtwo {
+  }
+  
+  .previewtwo .projectImage {
+    width: 80%;
+    aspect-ratio: 1 / 1;
+    outline: solid 1px pink;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+  }
+  
+  .previewtwo .projectImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .preview .card {
     margin-inline: 20px;
-}
-
-.cardtwo {
+  
+    transform: translateY(-45px);
+  }
+  .previewtwo .cardtwo {
+    margin-inline: 20px;
+  }
+  
+  .cardtwo {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
-
+  
     color: var(--color-black);
     font: var(--font-card-text);
-
+  
     border-radius: 20px;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-style: solid;
     border-width: 1px;
-    border-image-source: linear-gradient(to bottom,
-            var(--color-white) 0%,
-            rgba(0, 0, 0, 0));
+    border-image-source: linear-gradient(
+      to bottom,
+      var(--color-white) 0%,
+      rgba(0, 0, 0, 0)
+    );
     border-image-slice: 1;
-    background-image: linear-gradient(to bottom,
-            var(--color-white),
-            var(--color-white)),
-        linear-gradient(to bottom, var(--color-white) 0%, rgba(0, 0, 0, 0));
+    background-image: linear-gradient(
+        to bottom,
+        var(--color-white),
+        var(--color-white)
+      ),
+      linear-gradient(to bottom, var(--color-white) 0%, rgba(0, 0, 0, 0));
     background-origin: border-box;
     background-clip: content-box, border-box;
-
+  
     max-width: 800px;
     margin: 20px auto;
     width: 100%;
-
-}
-
-.cardtwo .cardtwo__projectTitle {
+  }
+  
+  .cardtwo .cardtwo__projectTitle {
     grid-column: 2;
     position: relative;
     margin: 15px 10px 1rem 0;
     text-align: center;
     text-transform: capitalize;
-
+  
     font: var(--font-card-section);
-}
-
-.cardtwo .cardtwo__projectTitle::before {
+  }
+  
+  .cardtwo .cardtwo__projectTitle::before {
     content: "";
     position: absolute;
     top: calc(50% - 1px);
@@ -60,79 +162,85 @@
     left: 0;
     right: 0;
     z-index: 0;
-
-    background-image: linear-gradient(to right,
-            white,
-            #232323 15%,
-            var(--color-black),
-            #232323 85%,
-            white);
-}
-
-.cardtwo .cardtwo__projectTitle--text {
+  
+    background-image: linear-gradient(
+      to right,
+      white,
+      #232323 15%,
+      var(--color-black),
+      #232323 85%,
+      white
+    );
+  }
+  
+  .cardtwo .cardtwo__projectTitle--text {
     position: relative;
     padding-inline: 0.1em;
     z-index: 1;
     background-color: var(--color-white);
-}
-
-.cardtwo .cardtwo__author {
+  }
+  
+  .cardtwo .cardtwo__author {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 10px;
-}
-
-.cardtwo .cardtwo__authorPhoto {
-    width: 75px;
-    height: 75px;
+  }
+  
+  .cardtwo .cardtwo__authorPhoto {
+    width: 95px;
+    height: 95px;
     border-radius: 50%;
-    background-image: url("../images/perfil-usuaria.jpg");
-    background-position: center;
-    background-size: cover;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 0.8rem;
-}
+  }
+  .cardtwo .cardtwo__authorPhoto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen se recorte sin distorsión */
+  }
 
-.cardtwo .cardtwo__job {
+  .cardtwo .cardtwo__job {
     margin-bottom: 0.2rem;
-}
-
-.cardtwo .cardtwo__name {
+  }
+  
+  .cardtwo .cardtwo__name {
     font: var(--font-card-title);
     margin-bottom: 0.2rem;
-}
-
-.cardtwo .cardtwo__project {
+  }
+  
+  .cardtwo .cardtwo__project {
     margin-right: 10px;
-}
-
-.cardtwo .cardtwo__slogan {
+  }
+  
+  .cardtwo .cardtwo__slogan {
     font: var(--font-card-subtitle);
     margin-top: -0.2rem;
     margin-bottom: 0.8rem;
-}
-
-.cardtwo .cardtwo__descriptionTitle {
+  }
+  
+  .cardtwo .cardtwo__descriptionTitle {
     font-weight: inherit;
     text-transform: capitalize;
-}
-
-.cardtwo .cardtwo__technicalInfo {
+  }
+  
+  .cardtwo .cardtwo__technicalInfo {
     display: grid;
     grid-template-columns: 1fr 2rem 2rem;
     gap: 0.5em;
-
+  
     margin-block: 1.8rem;
-}
-
-.cardtwo .cardtwo__technologies {
+  }
+  
+  .cardtwo .cardtwo__technologies {
     font: var(--font-card-tech);
-}
-
-
-
-@media screen and (min-width: 420px) {
+  }
+  
+  @media screen and (min-width: 420px) {
     :root {
-        font-size: 12px;
+      font-size: 12px;
     }
-}
+  }

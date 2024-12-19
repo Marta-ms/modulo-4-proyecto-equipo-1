@@ -7,16 +7,19 @@
     <link rel="stylesheet" href="/main.css" />
   </head>
 
-  <body>
+  <body class="container-projectsList"> 
     <main class="previewtwo">
-      <div class="projectImage"><%= project.image %></div>
+        <h4 class="">
+          Escaparate en línea para recoger ideas a través de la tecnología
+        </h4>
+      <div class="projectImage"><img src="<%= project.image %>" alt="imagen del proyecto" /></div>
       <article class="cardtwo">
         <h2 class="cardtwo__projectTitle">
           <span class="cardtwo__projectTitle--text">Nuestro proyecto</span>
         </h2>
 
         <div class="cardtwo__author">
-          <div class="cardtwo__authorPhoto"></div>
+          <div class="cardtwo__authorPhoto"><img src="<%= project.photo %>" alt="imagen del proyecto" /></div>
           <h3 class="cardtwo__name"><%= project.name %></h3>
           <p class="cardtwo__job"><%= project.job %></p>
         </div>
@@ -47,6 +50,7 @@
           </div>
         </div>
       </article>
+      </div>
     </main>
   </body>
 </html>
