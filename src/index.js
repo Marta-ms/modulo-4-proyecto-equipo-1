@@ -135,6 +135,9 @@ server.get("/detail/:idProyect", async (req, res) => {
 //servidor ficheros estaticos
 const staticServerPath = "./web/dist";
 server.use(express.static(staticServerPath));
+//servidor estilos
+const pathServerPublicStyles = './src/public-css';
+server.use(express.static(pathServerPublicStyles));
 
 
 
