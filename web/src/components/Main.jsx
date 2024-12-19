@@ -1,5 +1,7 @@
 import Preview from "./Preview";
 import Form from "./Form";
+import { Link } from "react-router-dom";
+
 
 function Main({
   onChangeInput,
@@ -8,8 +10,8 @@ function Main({
   changeAuthorPhoto,
   formImageProyect,
   changeProjectPhoto,
-  postCardToApi,
-  dataApi,
+  handleSaveProject,
+  urlProject,
 }) {
   return (
     <main className="main">
@@ -18,9 +20,10 @@ function Main({
         <p className="hero__text">
           Escaparate en línea para recoger ideas a través de la tecnología
         </p>
-        <a className="button--link" href="./">
-          Ver proyectos
-        </a>
+        
+        <Link className="button--link" to="/proyectList">Ver proyectos
+        {/* <a className="button--link" href="./home/proyects">Ver proyectos</a> */}
+        </Link>
       </section>
       <Preview
         personalInfo={formInfo}
@@ -31,9 +34,9 @@ function Main({
         onChangeInput={onChangeInput}
         formImages={formImages}
         formImageProyect={formImageProyect}
-        postCardToApi={postCardToApi}
         formInfo={formInfo}
-        dataApi={dataApi}
+        handleSaveProject={handleSaveProject}
+        urlProject={urlProject}
       />
     </main>
   );

@@ -1,4 +1,4 @@
-USE sql7749696;
+USE ProyectoModulo4_teachface;
 
 CREATE TABLE proyects(
 idProyects INT AUTO_INCREMENT PRIMARY KEY NOT NULL,

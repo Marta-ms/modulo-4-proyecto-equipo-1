@@ -1,25 +1,23 @@
-// import postCardToApi from "../services/postCardToApi";
 import GetAvatar from "./GetAvatar";
 
-function Form({ onChangeInput, formInfo, postCardToApi, dataApi }) {
+function Form({ onChangeInput, formInfo, handleSaveProject, urlProject }) {
   const handleChangeInput = (event) => {
-    console.log(event.target.id);
-    onChangeInput(event.target.value, event.target.id); //value es la información que quiero enviar hacia App (la madre)
+    onChangeInput(event.target.value, event.target.id);
   };
 
-  const handleSaveProject = (ev) => {
-    ev.preventDefault();
-    postCardToApi(formInfo);
-  };
   const formImages = (event) => {
+    console.log(event);
     onChangeInput(event, "photo");
+    
   };
+
   const formImageProyect = (event) => {
+    console.log(event);
     onChangeInput(event, "image");
   };
 
   return (
-    <form className="addForm">
+    <form className="addForm" onSubmit={handleSaveProject}>
       <h2 className="title">Información</h2>
       <fieldset className="addForm__group">
         <legend className="addForm__title">Cuéntanos sobre el proyecto</legend>
@@ -97,39 +95,23 @@ function Form({ onChangeInput, formInfo, postCardToApi, dataApi }) {
       </fieldset>
 
       <fieldset className="addForm__group--upload">
-        <label htmlFor="image" className="button">
           <GetAvatar
             text="Subir foto del proyecto"
             id="image"
             updateAvatar={formImageProyect}
           />
-        </label>
-        <input
-          onChange={formImageProyect}
-          className="addForm__hidden"
-          type="file"
-          name="image"
-          id="image"
-        />
-        <label htmlFor="photo" className="button">
           <GetAvatar
             text="Subir foto de la autora"
             id="photo"
             updateAvatar={formImages}
           />
-        </label>
-        <input
-          onChange={formImages}
-          className="addForm__hidden"
-          type="file"
-          name="photo"
-          id="photo"
-        />
-        <button onClick={handleSaveProject} className="button--large">
+        <button type="submit" className="button--large">
           Guardar proyecto
         </button>
 
-        <a href={dataApi}>{dataApi && <p>Enlace a tu proyecto</p>}</a>
+        <a href={urlProject} target="_blank" rel="noopener noreferrer">
+          {urlProject ? <p>¡Proyecto guardado! Haz clic aquí para verlo</p> : null}
+        </a>
       </fieldset>
     </form>
   );
