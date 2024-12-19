@@ -1,147 +1,139 @@
 .container-projectsList {
-    padding: 22px 22px 0 22px;
-    background-color: rgb(131, 116, 31);
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    
+  padding: 22px 22px 0 22px;
+  background-color: rgb(131, 116, 31);
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
 }
 
-//  .preview {
-//     overflow: hidden;
-//  }
-  
-  .previewtwo .cardtwo {
-    margin-inline: 20px;
-  }
-  
-  .cardtwo {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-  
-    color: var(--color-black);
-    font: var(--font-card-text);
-  
-    border-radius: 20px;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    border-style: solid;
-    border-width: 1px;
-    border-image-source: linear-gradient(
+.previewtwo .cardtwo {
+  margin-inline: 20px;
+}
+
+.cardtwo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+
+  color: var(--color-black);
+  font: var(--font-card-text);
+
+  border-radius: 20px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-style: solid;
+  border-width: 1px;
+  border-image-source: linear-gradient(
+    to bottom,
+    var(--color-white) 0%,
+    rgba(0, 0, 0, 0)
+  );
+  border-image-slice: 1;
+  background-image: linear-gradient(
       to bottom,
-      var(--color-white) 0%,
-      rgba(0, 0, 0, 0)
-    );
-    border-image-slice: 1;
-    background-image: linear-gradient(
-        to bottom,
-        var(--color-white),
-        var(--color-white)
-      ),
-      linear-gradient(to bottom, var(--color-white) 0%, rgba(0, 0, 0, 0));
-    background-origin: border-box;
-    background-clip: content-box, border-box;
+      var(--color-white),
+      var(--color-white)
+    ),
+    linear-gradient(to bottom, var(--color-white) 0%, rgba(0, 0, 0, 0));
+  background-origin: border-box;
+  background-clip: content-box, border-box;
 
-    max-width: 800px; 
-    margin: 20px auto;
-    width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  width: 100%;
+}
 
-  }
-  
-  .cardtwo .cardtwo__projectTitle {
-    grid-column: 2;
-    position: relative;
-    margin: 15px 10px 1rem 0;
-    text-align: center;
-    text-transform: capitalize;
-  
-    font: var(--font-card-section);
-  }
-  
-  .cardtwo .cardtwo__projectTitle::before {
-    content: "";
-    position: absolute;
-    top: calc(50% - 1px);
-    bottom: calc(50% - 1px);
-    left: 0;
-    right: 0;
-    z-index: 0;
-  
-    background-image: linear-gradient(
-      to right,
-      white,
-      #232323 15%,
-      var(--color-black),
-      #232323 85%,
-      white
-    );
-  }
-  
-  .cardtwo .cardtwo__projectTitle--text {
-    position: relative;
-    padding-inline: 0.1em;
-    z-index: 1;
-    background-color: var(--color-white);
-  }
-  
-  .cardtwo .cardtwo__author {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .cardtwo .cardtwo__authorPhoto {
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    background-image: url("../images/perfil-usuaria.jpg");
-    background-position: center;
-    background-size: cover;
-    margin-bottom: 0.8rem;
-  }
-  
-  .cardtwo .cardtwo__job {
-    margin-bottom: 0.2rem;
-  }
-  
-  .cardtwo .cardtwo__name {
-    font: var(--font-card-title);
-    margin-bottom: 0.2rem;
-  }
-  
-  .cardtwo .cardtwo__project {
-    margin-right: 10px;
-  }
-  
-  .cardtwo .cardtwo__slogan {
-    font: var(--font-card-subtitle);
-    margin-top: -0.2rem;
-    margin-bottom: 0.8rem;
-  }
-  
-  .cardtwo .cardtwo__descriptionTitle {
-    font-weight: inherit;
-    text-transform: capitalize;
-  }
-  
-  .cardtwo .cardtwo__technicalInfo {
-    display: grid;
-    grid-template-columns: 1fr 2rem 2rem;
-    gap: 0.5em;
-  
-    margin-block: 1.8rem;
-  }
-  
-  .cardtwo .cardtwo__technologies {
-    font: var(--font-card-tech);
-  }
-  
+.cardtwo .cardtwo__projectTitle {
+  grid-column: 2;
+  position: relative;
+  margin: 15px 10px 1rem 0;
+  text-align: center;
+  text-transform: capitalize;
 
+  font: var(--font-card-section);
+}
+
+.cardtwo .cardtwo__projectTitle::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  bottom: calc(50% - 1px);
+  left: 0;
+  right: 0;
+  z-index: 0;
+
+  background-image: linear-gradient(
+    to right,
+    white,
+    #232323 15%,
+    var(--color-black),
+    #232323 85%,
+    white
+  );
+}
+
+.cardtwo .cardtwo__projectTitle--text {
+  position: relative;
+  padding-inline: 0.1em;
+  z-index: 1;
+  background-color: var(--color-white);
+}
+
+.cardtwo .cardtwo__author {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cardtwo .cardtwo__authorPhoto {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-image: url("../images/perfil-usuaria.jpg");
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 0.8rem;
+}
+
+.cardtwo .cardtwo__job {
+  margin-bottom: 0.2rem;
+}
+
+.cardtwo .cardtwo__name {
+  font: var(--font-card-title);
+  margin-bottom: 0.2rem;
+}
+
+.cardtwo .cardtwo__project {
+  margin-right: 10px;
+}
+
+.cardtwo .cardtwo__slogan {
+  font: var(--font-card-subtitle);
+  margin-top: -0.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.cardtwo .cardtwo__descriptionTitle {
+  font-weight: inherit;
+  text-transform: capitalize;
+}
+
+.cardtwo .cardtwo__technicalInfo {
+  display: grid;
+  grid-template-columns: 1fr 2rem 2rem;
+  gap: 0.5em;
+
+  margin-block: 1.8rem;
+}
+
+.cardtwo .cardtwo__technologies {
+  font: var(--font-card-tech);
+}
 
 @media screen and (min-width: 420px) {
-    :root {
-        font-size: 12px;
-    }
+  :root {
+    font-size: 12px;
+  }
 }
